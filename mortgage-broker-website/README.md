@@ -1,6 +1,6 @@
 # Australian Mortgage Broker Website
 
-A modern, professional, and high-converting website for a mortgage broking business in Australia. Built with React, Vite, and Tailwind CSS.
+A modern, professional, and high-converting website for a mortgage broking business in Australia. Built with React, Gatsby, and Tailwind CSS.
 
 ## Features
 
@@ -33,15 +33,15 @@ A modern, professional, and high-converting website for a mortgage broking busin
 ## Tech Stack
 
 - **React 18** - Modern React with hooks
-- **Vite** - Fast build tool and dev server
+- **Gatsby 5** - React framework with fast static builds
 - **Tailwind CSS** - Utility-first CSS framework
 - **Lucide React** - Beautiful icon library
 
 ## Color Palette
 
-- **Primary**: Deep Navy Blue (#0F172A)
-- **Accent**: Electric Teal (#06B6D4)
-- **Neutral**: Light Grays (#F8FAFC - #E2E8F0)
+- **Primary**: Deep Navy Blue (#0B1C3D)
+- **Accent**: Premium Gold (#C8A55A)
+- **Neutral**: Warm Neutrals (#F7F5F0 - #C8BBA1)
 
 ## Installation
 
@@ -55,8 +55,11 @@ npm run dev
 # Build for production
 npm run build
 
-# Preview production build
-npm run preview
+# Serve production build locally
+npm run serve
+
+# Clean Gatsby cache
+npm run clean
 ```
 
 ## Development

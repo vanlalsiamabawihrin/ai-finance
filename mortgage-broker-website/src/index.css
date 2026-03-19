@@ -2,30 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply font-sans antialiased;
+    @apply font-sans antialiased bg-neutral-50 text-primary;
+  }
+
+  ::selection {
+    @apply bg-accent text-primary-dark;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-accent hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply bg-gradient-to-r from-accent to-accent-dark text-white font-semibold px-6 py-3.5 md:px-8 md:py-4 rounded-full transition-all duration-300 shadow-brand hover:shadow-soft transform hover:-translate-y-0.5;
   }
-  
+
   .btn-secondary {
-    @apply bg-white hover:bg-neutral-50 text-primary font-semibold px-8 py-4 rounded-lg border-2 border-primary transition-all duration-300 hover:shadow-lg;
+    @apply bg-white/80 backdrop-blur text-primary hover:bg-white font-semibold px-6 py-3.5 md:px-8 md:py-4 rounded-full border border-primary/15 transition-all duration-300 hover:shadow-soft;
   }
-  
+
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .card {
-    @apply bg-white rounded-2xl shadow-card hover:shadow-soft transition-all duration-300 p-8;
+    @apply bg-white/90 backdrop-blur rounded-3xl shadow-card hover:shadow-soft border border-white/60 transition-all duration-300 p-8;
+  }
+
+  .glass-nav {
+    @apply bg-white/85 backdrop-blur-xl border border-white/70 shadow-soft;
+  }
+
+  .premium-heading {
+    @apply text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-primary;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 bg-white/80 text-accent-dark rounded-full px-4 py-1.5 text-sm font-semibold border border-accent/20;
+  }
+
+  .field-input {
+    @apply w-full px-4 py-3 border border-neutral-200 bg-white rounded-xl focus:border-accent focus:ring-4 focus:ring-accent/10 focus:outline-none transition-all;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

@@ -1,23 +1,24 @@
-import { Download, CheckCircle2 } from 'lucide-react';
-import { useState } from 'react';
+import React from "react";
+import { Download, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
 export default function LeadMagnet() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    name: "",
+    email: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Lead magnet download:', formData);
+    console.log("Lead magnet download:", formData);
   };
 
   const benefits = [
-    'Step-by-step home buying checklist',
-    'How to improve your borrowing capacity',
-    'Understanding interest rates and loan types',
-    'First home buyer grants and schemes',
-    'Tips to speed up loan approval',
+    "Step-by-step home buying checklist",
+    "How to improve your borrowing capacity",
+    "Understanding interest rates and loan types",
+    "First home buyer grants and schemes",
+    "Tips to speed up loan approval",
   ];
 
   return (
@@ -31,13 +32,15 @@ export default function LeadMagnet() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-block bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-              <span className="text-accent-light font-semibold">FREE DOWNLOAD</span>
+              <span className="text-accent-light font-semibold">
+                FREE DOWNLOAD
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               The Ultimate Australian Home Buyer's Guide
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Download our comprehensive 30-page guide packed with insider tips, 
+              Download our comprehensive 30-page guide packed with insider tips,
               checklists, and strategies to help you secure your dream home.
             </p>
 
@@ -52,7 +55,9 @@ export default function LeadMagnet() {
 
             <div className="flex items-center gap-4 text-accent-light">
               <Download className="w-6 h-6" />
-              <span className="font-semibold">Instant PDF Download - No Credit Card Required</span>
+              <span className="font-semibold">
+                Instant PDF Download - No Credit Card Required
+              </span>
             </div>
           </div>
 
@@ -73,7 +78,9 @@ export default function LeadMagnet() {
                   type="text"
                   placeholder="John Smith"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors text-gray-900"
                   required
                 />
@@ -87,13 +94,18 @@ export default function LeadMagnet() {
                   type="email"
                   placeholder="john@example.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors text-gray-900"
                   required
                 />
               </div>
 
-              <button type="submit" className="w-full btn-primary flex items-center justify-center gap-2">
+              <button
+                type="submit"
+                className="w-full btn-primary flex items-center justify-center gap-2"
+              >
                 <Download className="w-5 h-5" />
                 Download Free Guide
               </button>

@@ -1,11 +1,12 @@
-import { Award, Users, TrendingUp, Heart } from 'lucide-react';
+import React from "react";
+import { Award, Users, TrendingUp, Heart } from "lucide-react";
 
 export default function About() {
   const stats = [
-    { icon: Users, value: '2,500+', label: 'Happy Clients' },
-    { icon: Award, value: '15+', label: 'Years Experience' },
-    { icon: TrendingUp, value: '$850M+', label: 'Loans Settled' },
-    { icon: Heart, value: '4.9/5', label: 'Client Rating' },
+    { icon: Users, value: "2,500+", label: "Happy Clients" },
+    { icon: Award, value: "15+", label: "Years Experience" },
+    { icon: TrendingUp, value: "$850M+", label: "Loans Settled" },
+    { icon: Heart, value: "4.9/5", label: "Client Rating" },
   ];
 
   return (
@@ -22,7 +23,9 @@ export default function About() {
               />
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-card p-6">
                 <p className="text-4xl font-bold text-accent mb-1">15+</p>
-                <p className="text-sm text-gray-600 font-semibold">Years Experience</p>
+                <p className="text-sm text-gray-600 font-semibold">
+                  Years Experience
+                </p>
               </div>
             </div>
           </div>
@@ -32,31 +35,45 @@ export default function About() {
               Meet Your Trusted Mortgage Broker
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              With over 15 years of experience in the Australian mortgage industry, we have helped 
-              thousands of families achieve their homeownership dreams. Our commitment to personalized 
-              service and expert guidance sets us apart.
+              With over 15 years of experience in the Australian mortgage
+              industry, we have helped thousands of families achieve their
+              homeownership dreams. Our commitment to personalized service and
+              expert guidance sets us apart.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              As an accredited mortgage broker with access to over 40 lenders, we work for you - not 
-              the banks. Our mission is simple: find you the best loan at the best rate with the best 
-              terms possible.
+              As an accredited mortgage broker with access to over 40 lenders,
+              we work for you - not the banks. Our mission is simple: find you
+              the best loan at the best rate with the best terms possible.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mb-8">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center p-6 bg-neutral-50 rounded-xl">
+                <div
+                  key={index}
+                  className="text-center p-6 bg-neutral-50 rounded-xl"
+                >
                   <stat.icon className="w-8 h-8 text-accent mx-auto mb-3" />
-                  <p className="text-3xl font-bold text-primary mb-1">{stat.value}</p>
-                  <p className="text-sm text-gray-600 font-medium">{stat.label}</p>
+                  <p className="text-3xl font-bold text-primary mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-gray-600 font-medium">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="btn-primary inline-block text-center">
+              <a
+                href="#contact"
+                className="btn-primary inline-block text-center"
+              >
                 Book a Consultation
               </a>
-              <a href="tel:1300000000" className="btn-secondary inline-block text-center">
+              <a
+                href="tel:1300000000"
+                className="btn-secondary inline-block text-center"
+              >
                 Call 1300 000 000
               </a>
             </div>

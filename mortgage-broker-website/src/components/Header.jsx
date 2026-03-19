@@ -1,9 +1,11 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [trustBarHeight, setTrustBarHeight] = useState(44);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,6 +13,51 @@ export default function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const trustBar = document.getElementById("trust-bar");
+    if (!trustBar) {
+      return;
+    }
+
+    const updateTrustBarHeight = () => {
+      setTrustBarHeight(Math.ceil(trustBar.getBoundingClientRect().height));
+    };
+
+    updateTrustBarHeight();
+
+    const observer = new ResizeObserver(updateTrustBarHeight);
+    observer.observe(trustBar);
+    window.addEventListener("resize", updateTrustBarHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateTrustBarHeight);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const navLinks = [
@@ -24,94 +71,104 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full top-8 z-[60] transition-all duration-300 ${
-        isScrolled
-          ? "bg-white shadow-lg py-3"
-          : "bg-white/95 backdrop-blur-sm py-4"
+      className={`fixed w-full z-[60] transition-all duration-300 ${
+        isScrolled ? "py-3" : "py-4"
       }`}
+      style={{ top: `${trustBarHeight}px` }}
     >
       <nav className="section-container">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-accent to-accent-dark rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">M</span>
+        <div
+          className={`glass-nav rounded-2xl px-4 md:px-6 transition-all duration-300 ${
+            isScrolled ? "shadow-card" : ""
+          }`}
+        >
+          <div className="flex items-center justify-between py-3">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-soft border border-neutral-100">
+                <img
+                  src="/ai-finance-logo.png"
+                  alt="AI Finance logo"
+                  className="h-9 w-auto rounded-2xl"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-primary font-extrabold text-lg leading-tight tracking-tight">
+                  AI Finance
+                </span>
+                <span className="hidden sm:block text-accent-dark text-[10px] font-bold leading-tight tracking-[0.2em]">
+                  PREMIUM MORTGAGE ADVISORY
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-primary font-bold text-lg leading-tight">
-                Aussie Home
-              </span>
-              <span className="text-accent text-xs font-semibold leading-tight">
-                MORTGAGE BROKERS
-              </span>
-            </div>
-          </div>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-primary hover:text-accent font-medium transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="tel:1300000000"
-              className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              <span className="font-semibold">1300 000 000</span>
-            </a>
-            <a href="#contact" className="btn-primary text-sm py-3 px-6">
-              Book Free Consultation
-            </a>
-          </div>
-
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-primary p-2"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </div>
-
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-neutral-200 pt-4">
-            <div className="flex flex-col gap-4">
+            <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-primary hover:text-accent font-medium transition-colors duration-200"
+                  className="text-primary/90 hover:text-accent-dark font-semibold text-sm transition-colors duration-200"
                 >
                   {link.name}
                 </a>
               ))}
+            </div>
+
+            <div className="hidden lg:flex items-center gap-4">
               <a
                 href="tel:1300000000"
-                className="flex items-center gap-2 text-primary font-semibold"
+                className="flex items-center gap-2 text-primary/90 hover:text-accent-dark transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                1300 000 000
+                <span className="font-semibold">1300 000 000</span>
               </a>
-              <a
-                href="#contact"
-                className="btn-primary text-center text-sm py-3"
-              >
+              <a href="#contact" className="btn-primary text-sm py-3 px-6">
                 Book Free Consultation
               </a>
             </div>
+
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden text-primary p-2 rounded-xl hover:bg-primary/5 transition-colors"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
-        )}
+
+          {isMobileMenuOpen && (
+            <div className="lg:hidden pb-4 border-t border-neutral-200/80 pt-4 max-h-[70vh] overflow-y-auto">
+              <div className="flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-primary hover:text-accent-dark font-semibold transition-colors duration-200"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <a
+                  href="tel:1300000000"
+                  className="flex items-center gap-2 text-primary font-semibold"
+                >
+                  <Phone className="w-4 h-4" />
+                  1300 000 000
+                </a>
+                <a
+                  href="#contact"
+                  className="btn-primary text-center text-sm py-3"
+                >
+                  Book Free Consultation
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
       </nav>
     </header>
   );

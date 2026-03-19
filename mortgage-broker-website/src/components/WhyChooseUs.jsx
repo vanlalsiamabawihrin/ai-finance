@@ -1,3 +1,4 @@
+import React from "react";
 import { TrendingDown, Clock, Shield, Award } from "lucide-react";
 
 export default function WhyChooseUs() {
@@ -29,13 +30,14 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-20 bg-neutral-50">
+    <section className="py-24 bg-gradient-to-b from-neutral-50 to-white">
       <div className="section-container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Why Choose Us?
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <span className="section-eyebrow mb-4">
+            Why clients choose AI Finance
+          </span>
+          <h2 className="premium-heading mb-4">Why Choose Us?</h2>
+          <p className="text-xl text-primary/65 max-w-2xl mx-auto">
             We are not just mortgage brokers - we are your partners in achieving
             homeownership
           </p>
@@ -45,9 +47,9 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="card hover:scale-105 transition-transform duration-300"
+              className="card hover:-translate-y-1 hover:scale-[1.02]"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center mb-6">
+              <div className="w-14 h-14 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mb-6 shadow-brand">
                 <feature.icon className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold text-primary mb-3">

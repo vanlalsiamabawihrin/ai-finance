@@ -1,43 +1,55 @@
-import { MessageSquare, FileSearch, CheckCircle2, Key } from 'lucide-react';
+import React from "react";
+import { MessageSquare, FileSearch, CheckCircle2, Key } from "lucide-react";
 
 export default function HowItWorks() {
   const steps = [
     {
       icon: MessageSquare,
-      title: 'Free Consultation',
-      description: 'Book a no-obligation chat to discuss your goals, budget, and circumstances.',
-      step: '01',
+      title: "Free Consultation",
+      description:
+        "Book a no-obligation chat to discuss your goals, budget, and circumstances.",
+      step: "01",
     },
     {
       icon: FileSearch,
-      title: 'Compare & Recommend',
-      description: 'We search 40+ lenders to find the best rates and loan features for you.',
-      step: '02',
+      title: "Compare & Recommend",
+      description:
+        "We search 40+ lenders to find the best rates and loan features for you.",
+      step: "02",
     },
     {
       icon: CheckCircle2,
-      title: 'Application & Approval',
-      description: 'We handle all paperwork and liaise with lenders to secure your approval.',
-      step: '03',
+      title: "Application & Approval",
+      description:
+        "We handle all paperwork and liaise with lenders to secure your approval.",
+      step: "03",
     },
     {
       icon: Key,
-      title: 'Settlement',
-      description: 'We guide you through to settlement and beyond. Your success is our success.',
-      step: '04',
+      title: "Settlement",
+      description:
+        "We guide you through to settlement and beyond. Your success is our success.",
+      step: "04",
     },
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-primary text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary opacity-50"></div>
-      
+    <section
+      id="how-it-works"
+      className="py-24 bg-gradient-to-br from-primary-dark via-primary to-[#142B56] text-white relative overflow-hidden"
+    >
+      <div className="absolute top-10 -left-28 w-80 h-80 rounded-full bg-accent/15 blur-3xl" />
+      <div className="absolute -bottom-24 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
+
       <div className="section-container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <p className="section-eyebrow !bg-white/10 !text-accent-light !border-white/20 mb-4">
+            Your path to approval
+          </p>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             How It Works
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-white/75 max-w-2xl mx-auto">
             Simple, transparent process from start to finish
           </p>
         </div>
@@ -45,23 +57,21 @@ export default function HowItWorks() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 h-full">
-                <div className="text-6xl font-bold text-accent/30 mb-4">
+              <div className="bg-white/10 border border-white/15 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/15 transition-all duration-300 h-full shadow-soft">
+                <div className="text-6xl font-bold text-accent/35 mb-4 tracking-tight">
                   {step.step}
                 </div>
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-5">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center mb-5 shadow-brand">
                   <step.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-white/75 leading-relaxed">
                   {step.description}
                 </p>
               </div>
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
-                  <div className="w-8 h-0.5 bg-accent"></div>
+                  <div className="w-8 h-0.5 bg-accent/70"></div>
                 </div>
               )}
             </div>

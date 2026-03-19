@@ -1,3 +1,4 @@
+import React from "react";
 import TrustBar from "./components/TrustBar";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -17,7 +18,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-neutral-50 via-white to-neutral-50">
       <TrustBar />
       <Header />
       <Hero />

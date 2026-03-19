@@ -1,19 +1,20 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useState } from 'react';
+import React from "react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    loanType: 'home-purchase',
-    deposit: '',
-    message: '',
+    name: "",
+    phone: "",
+    email: "",
+    loanType: "home-purchase",
+    deposit: "",
+    message: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Contact form submission:', formData);
+    console.log("Contact form submission:", formData);
   };
 
   const handleChange = (e) => {
@@ -24,20 +25,25 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section
+      id="contact"
+      className="py-24 bg-gradient-to-b from-white to-neutral-50"
+    >
       <div className="section-container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Get in Touch
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to start your home loan journey? Contact us today for a free consultation
+          <span className="section-eyebrow mb-4">
+            Speak with a loan strategist
+          </span>
+          <h2 className="premium-heading mb-4">Get in Touch</h2>
+          <p className="text-xl text-primary/65 max-w-2xl mx-auto">
+            Ready to start your home loan journey? Contact us today for a free
+            consultation
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <div className="bg-neutral-50 rounded-3xl shadow-soft p-8 lg:p-10">
+            <div className="bg-white/90 border border-white rounded-3xl shadow-card p-8 lg:p-10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold text-primary mb-6">
                 Send Us a Message
               </h3>
@@ -54,7 +60,7 @@ export default function ContactForm() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Smith"
-                      className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                      className="field-input"
                       required
                     />
                   </div>
@@ -69,7 +75,7 @@ export default function ContactForm() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="04XX XXX XXX"
-                      className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                      className="field-input"
                       required
                     />
                   </div>
@@ -85,7 +91,7 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                    className="field-input"
                     required
                   />
                 </div>
@@ -99,7 +105,7 @@ export default function ContactForm() {
                       name="loanType"
                       value={formData.loanType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                      className="field-input"
                       required
                     >
                       <option value="home-purchase">Home Purchase</option>
@@ -121,7 +127,7 @@ export default function ContactForm() {
                       value={formData.deposit}
                       onChange={handleChange}
                       placeholder="e.g., $100,000"
-                      className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                      className="field-input"
                     />
                   </div>
                 </div>
@@ -136,7 +142,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Tell us about your situation and what you're looking for..."
                     rows="5"
-                    className="w-full px-4 py-3 border-2 border-neutral-200 rounded-lg focus:border-accent focus:outline-none transition-colors resize-none"
+                    className="field-input resize-none"
                   ></textarea>
                 </div>
 
@@ -148,7 +154,7 @@ export default function ContactForm() {
                   Send Message
                 </button>
 
-                <p className="text-sm text-gray-500 text-center">
+                <p className="text-sm text-primary/60 text-center">
                   We typically respond within 2 hours during business hours
                 </p>
               </form>
@@ -161,7 +167,10 @@ export default function ContactForm() {
                 <Phone className="w-6 h-6 text-accent" />
               </div>
               <h4 className="text-lg font-bold text-primary mb-2">Phone</h4>
-              <a href="tel:1300000000" className="text-gray-600 hover:text-accent transition-colors">
+              <a
+                href="tel:1300000000"
+                className="text-gray-600 hover:text-accent transition-colors"
+              >
                 1300 000 000
               </a>
               <p className="text-sm text-gray-500 mt-2">Mon-Fri: 9am - 6pm</p>
@@ -172,10 +181,15 @@ export default function ContactForm() {
                 <Mail className="w-6 h-6 text-accent" />
               </div>
               <h4 className="text-lg font-bold text-primary mb-2">Email</h4>
-              <a href="mailto:info@aussiehomemortgages.com.au" className="text-gray-600 hover:text-accent transition-colors break-all">
-                info@aussiehomemortgages.com.au
+              <a
+                href="mailto:hello@aifinance.com.au"
+                className="text-gray-600 hover:text-accent transition-colors break-all"
+              >
+                hello@aifinance.com.au
               </a>
-              <p className="text-sm text-gray-500 mt-2">We reply within 24 hours</p>
+              <p className="text-sm text-gray-500 mt-2">
+                We reply within 24 hours
+              </p>
             </div>
 
             <div className="card">
@@ -184,8 +198,10 @@ export default function ContactForm() {
               </div>
               <h4 className="text-lg font-bold text-primary mb-2">Office</h4>
               <p className="text-gray-600">
-                Level 10, 123 Queen Street<br />
-                Melbourne VIC 3000<br />
+                Level 10, 123 Queen Street
+                <br />
+                Melbourne VIC 3000
+                <br />
                 Australia
               </p>
               <p className="text-sm text-gray-500 mt-2">By appointment only</p>
