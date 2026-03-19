@@ -88,10 +88,14 @@ export default function Hero() {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label
+                  htmlFor="loan-type"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Loan Type
                 </label>
                 <select
+                  id="loan-type"
                   value={formData.loanType}
                   onChange={(e) =>
                     setFormData({ ...formData, loanType: e.target.value })
@@ -107,10 +111,14 @@ export default function Hero() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label
+                  htmlFor="loan-amount"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Loan Amount
                 </label>
                 <input
+                  id="loan-amount"
                   type="text"
                   placeholder="e.g., $500,000"
                   value={formData.loanAmount}
@@ -122,10 +130,14 @@ export default function Hero() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label
+                  htmlFor="your-name"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Your Name
                 </label>
                 <input
+                  id="your-name"
                   type="text"
                   placeholder="Full name"
                   className="field-input"
@@ -133,10 +145,14 @@ export default function Hero() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label
+                  htmlFor="phone-number"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Phone Number
                 </label>
                 <input
+                  id="phone-number"
                   type="tel"
                   placeholder="04XX XXX XXX"
                   className="field-input"
@@ -144,10 +160,14 @@ export default function Hero() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Email
                 </label>
                 <input
+                  id="email"
                   type="email"
                   placeholder="your@email.com"
                   className="field-input"

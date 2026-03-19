@@ -71,10 +71,14 @@ export default function LeadMagnet() {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label
+                  htmlFor="full-name"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Full Name
                 </label>
                 <input
+                  id="full-name"
                   type="text"
                   placeholder="John Smith"
                   value={formData.name}
@@ -87,10 +91,14 @@ export default function LeadMagnet() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label
+                  htmlFor="email-address"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Email Address
                 </label>
                 <input
+                  id="email-address"
                   type="email"
                   placeholder="john@example.com"
                   value={formData.email}

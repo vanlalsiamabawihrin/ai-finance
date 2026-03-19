@@ -51,10 +51,14 @@ export default function ContactForm() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
+                      id="name"
                       type="text"
                       name="name"
                       value={formData.name}
@@ -66,10 +70,14 @@ export default function ContactForm() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Phone Number *
                     </label>
                     <input
+                      id="phone"
                       type="tel"
                       name="phone"
                       value={formData.phone}
@@ -82,10 +90,14 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Email Address *
                   </label>
                   <input
+                    id="email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -98,10 +110,14 @@ export default function ContactForm() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="loan-type"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Loan Type *
                     </label>
                     <select
+                      id="loan-type"
                       name="loanType"
                       value={formData.loanType}
                       onChange={handleChange}
@@ -118,10 +134,14 @@ export default function ContactForm() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="deposit"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Deposit Amount
                     </label>
                     <input
+                      id="deposit"
                       type="text"
                       name="deposit"
                       value={formData.deposit}
@@ -133,10 +153,14 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
+                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}

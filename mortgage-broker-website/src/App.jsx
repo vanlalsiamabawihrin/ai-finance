@@ -10,7 +10,7 @@ import LoanTypes from "./components/LoanTypes";
 import Calculators from "./components/Calculators";
 import Testimonials from "./components/Testimonials";
 import About from "./components/About";
-import FAQ from "./components/FAQ";
+import Faq from "./components/FAQ";
 import LeadMagnet from "./components/LeadMagnet";
 import CTABanner from "./components/CTABanner";
 import ContactForm from "./components/ContactForm";
@@ -30,7 +30,7 @@ function App() {
       <Calculators />
       <Testimonials />
       <About />
-      <FAQ />
+      <Faq />
       <LeadMagnet />
       <CTABanner />
       <ContactForm />

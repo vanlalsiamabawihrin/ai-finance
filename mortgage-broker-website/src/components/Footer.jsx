@@ -63,24 +63,27 @@ export default function Footer() {
               Expert advice, competitive rates, and personalized service.
             </p>
             <div className="flex gap-4">
-              <a
-                href="#"
+              <button
+                type="button"
                 className="w-10 h-10 bg-white/10 hover:bg-accent rounded-xl flex items-center justify-center transition-colors"
+                aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+              </button>
+              <button
+                type="button"
                 className="w-10 h-10 bg-white/10 hover:bg-accent rounded-xl flex items-center justify-center transition-colors"
+                aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+              </button>
+              <button
+                type="button"
                 className="w-10 h-10 bg-white/10 hover:bg-accent rounded-xl flex items-center justify-center transition-colors"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </button>
             </div>
           </div>
 

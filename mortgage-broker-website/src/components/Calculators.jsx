@@ -75,10 +75,14 @@ export default function Calculators() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div>
-              <label className="block text-sm font-semibold text-primary/80 mb-3">
+              <label
+                htmlFor="loan-amount"
+                className="block text-sm font-semibold text-primary/80 mb-3"
+              >
                 Loan Amount
               </label>
               <input
+                id="loan-amount"
                 type="range"
                 min="100000"
                 max="2000000"
@@ -93,10 +97,14 @@ export default function Calculators() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-primary/80 mb-3">
+              <label
+                htmlFor="interest-rate"
+                className="block text-sm font-semibold text-primary/80 mb-3"
+              >
                 Interest Rate (%)
               </label>
               <input
+                id="interest-rate"
                 type="range"
                 min="2"
                 max="10"
@@ -111,10 +119,14 @@ export default function Calculators() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-primary/80 mb-3">
+              <label
+                htmlFor="loan-term"
+                className="block text-sm font-semibold text-primary/80 mb-3"
+              >
                 Loan Term (Years)
               </label>
               <input
+                id="loan-term"
                 type="range"
                 min="5"
                 max="30"
